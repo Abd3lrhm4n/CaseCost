@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CaseCostModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CostDetailsT">
+          <Key>
+            <PropertyRef Name="CostID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="CostID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CostT">
+          <Key>
+            <PropertyRef Name="CostID" />
+          </Key>
+          <Property Name="CostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcedureID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemPriceUpdateT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="OldUnitPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="NewUnitPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="ModifyDate" Type="date" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ItemsT">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PremissionsT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Premission" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProceduresT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcedureName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UsersT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PremissionsID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CaseCost.dbo.Invoice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="ProcedureName" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="UnitPrice" />
+            <PropertyRef Name="CostID" />
+          </Key>
+          <Property Name="Quantity" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="ProcedureName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="CostID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CostDetailsT_CostT">
+          <End Role="CostT" Type="Self.CostT" Multiplicity="1" />
+          <End Role="CostDetailsT" Type="Self.CostDetailsT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostT">
+              <PropertyRef Name="CostID" />
+            </Principal>
+            <Dependent Role="CostDetailsT">
+              <PropertyRef Name="CostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostDetailsT_ItemT">
+          <End Role="ItemsT" Type="Self.ItemsT" Multiplicity="1" />
+          <End Role="CostDetailsT" Type="Self.CostDetailsT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsT">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="CostDetailsT">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostT_ProceduresT">
+          <End Role="ProceduresT" Type="Self.ProceduresT" Multiplicity="1" />
+          <End Role="CostT" Type="Self.CostT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProceduresT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CostT">
+              <PropertyRef Name="ProcedureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPriceUpdateT_ItemT">
+          <End Role="ItemsT" Type="Self.ItemsT" Multiplicity="1" />
+          <End Role="ItemPriceUpdateT" Type="Self.ItemPriceUpdateT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsT">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPriceUpdateT">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersT_PremissionsT">
+          <End Role="PremissionsT" Type="Self.PremissionsT" Multiplicity="1" />
+          <End Role="UsersT" Type="Self.UsersT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PremissionsT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UsersT">
+              <PropertyRef Name="PremissionsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_DeleteCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteItemPriceUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteProcedures" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="procId" Type="int" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertCostDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="costId" Type="int" Mode="In" />
+          <Parameter Name="quantity" Type="decimal" Mode="In" />
+          <Parameter Name="itemid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="procID" Type="int" Mode="In" />
+          <Parameter Name="date" Type="datetime" Mode="In" />
+          <Parameter Name="itemID" Type="int" Mode="In" />
+          <Parameter Name="quantity" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertItemPriceUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itemID" Type="int" Mode="In" />
+          <Parameter Name="oldprice" Type="decimal" Mode="In" />
+          <Parameter Name="newprice" Type="decimal" Mode="In" />
+          <Parameter Name="modifyDate" Type="date" Mode="In" />
+          <Parameter Name="note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="decription" Type="nvarchar" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="unitprice" Type="decimal" Mode="In" />
+          <Parameter Name="quantity" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertProcedures" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="procName" Type="nvarchar" Mode="In" />
+          <Parameter Name="note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="procId" Type="int" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="unitprice" Type="decimal" Mode="In" />
+          <Parameter Name="quantity" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateItemPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="ModifyDate" Type="date" Mode="In" />
+          <Parameter Name="Note" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="NewUnitPrice" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateProcedures" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="procName" Type="nvarchar" Mode="In" />
+          <Parameter Name="note" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="CaseCostModelStoreContainer">
+          <EntitySet Name="CostDetailsT" EntityType="Self.CostDetailsT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CostT" EntityType="Self.CostT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemPriceUpdateT" EntityType="Self.ItemPriceUpdateT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsT" EntityType="Self.ItemsT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PremissionsT" EntityType="Self.PremissionsT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProceduresT" EntityType="Self.ProceduresT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersT" EntityType="Self.UsersT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Invoice].[Quantity] AS [Quantity], 
+    [Invoice].[Date] AS [Date], 
+    [Invoice].[ProcedureName] AS [ProcedureName], 
+    [Invoice].[Name] AS [Name], 
+    [Invoice].[UnitPrice] AS [UnitPrice], 
+    [Invoice].[CostID] AS [CostID]
+    FROM [dbo].[Invoice] AS [Invoice]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CostDetailsT_CostT" Association="Self.FK_CostDetailsT_CostT">
+            <End Role="CostT" EntitySet="CostT" />
+            <End Role="CostDetailsT" EntitySet="CostDetailsT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostDetailsT_ItemT" Association="Self.FK_CostDetailsT_ItemT">
+            <End Role="ItemsT" EntitySet="ItemsT" />
+            <End Role="CostDetailsT" EntitySet="CostDetailsT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostT_ProceduresT" Association="Self.FK_CostT_ProceduresT">
+            <End Role="ProceduresT" EntitySet="ProceduresT" />
+            <End Role="CostT" EntitySet="CostT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPriceUpdateT_ItemT" Association="Self.FK_ItemPriceUpdateT_ItemT">
+            <End Role="ItemsT" EntitySet="ItemsT" />
+            <End Role="ItemPriceUpdateT" EntitySet="ItemPriceUpdateT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersT_PremissionsT" Association="Self.FK_UsersT_PremissionsT">
+            <End Role="PremissionsT" EntitySet="PremissionsT" />
+            <End Role="UsersT" EntitySet="UsersT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CaseCostModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CostT">
+          <Key>
+            <PropertyRef Name="CostID" />
+          </Key>
+          <Property Name="CostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcedureID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ProceduresT" Relationship="Self.FK_CostT_ProceduresT" FromRole="CostT" ToRole="ProceduresT" />
+          <NavigationProperty Name="CostDetailsTs" Relationship="CaseCostModel.FK_CostDetailsT_CostT" FromRole="CostT" ToRole="CostDetailsT" />
+        </EntityType>
+        <EntityType Name="ItemPriceUpdateT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="OldUnitPrice" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="NewUnitPrice" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ItemsT" Relationship="Self.FK_ItemPriceUpdateT_ItemT" FromRole="ItemPriceUpdateT" ToRole="ItemsT" />
+        </EntityType>
+        <EntityType Name="ItemsT">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ItemPriceUpdateTs" Relationship="Self.FK_ItemPriceUpdateT_ItemT" FromRole="ItemsT" ToRole="ItemPriceUpdateT" />
+          <NavigationProperty Name="CostDetailsTs" Relationship="CaseCostModel.FK_CostDetailsT_ItemT" FromRole="ItemsT" ToRole="CostDetailsT" />
+        </EntityType>
+        <EntityType Name="ProceduresT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcedureName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CostTs" Relationship="Self.FK_CostT_ProceduresT" FromRole="ProceduresT" ToRole="CostT" />
+        </EntityType>
+        <Association Name="FK_CostT_ProceduresT">
+          <End Role="ProceduresT" Type="Self.ProceduresT" Multiplicity="1" />
+          <End Role="CostT" Type="Self.CostT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProceduresT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CostT">
+              <PropertyRef Name="ProcedureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPriceUpdateT_ItemT">
+          <End Role="ItemsT" Type="Self.ItemsT" Multiplicity="1" />
+          <End Role="ItemPriceUpdateT" Type="Self.ItemPriceUpdateT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsT">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPriceUpdateT">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CaseCostEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CostTs" EntityType="Self.CostT" />
+          <EntitySet Name="ItemPriceUpdateTs" EntityType="Self.ItemPriceUpdateT" />
+          <EntitySet Name="ItemsTs" EntityType="Self.ItemsT" />
+          <EntitySet Name="ProceduresTs" EntityType="Self.ProceduresT" />
+          <AssociationSet Name="FK_CostT_ProceduresT" Association="Self.FK_CostT_ProceduresT">
+            <End Role="ProceduresT" EntitySet="ProceduresTs" />
+            <End Role="CostT" EntitySet="CostTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPriceUpdateT_ItemT" Association="Self.FK_ItemPriceUpdateT_ItemT">
+            <End Role="ItemsT" EntitySet="ItemsTs" />
+            <End Role="ItemPriceUpdateT" EntitySet="ItemPriceUpdateTs" />
+          </AssociationSet>
+          <FunctionImport Name="SP_DeleteCost">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteItem">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteItemPriceUpdate">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteProcedures">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertCost">
+            <Parameter Name="procId" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertCostDetails">
+            <Parameter Name="costId" Mode="In" Type="Int32" />
+            <Parameter Name="quantity" Mode="In" Type="Decimal" />
+            <Parameter Name="itemid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertItemPriceUpdate">
+            <Parameter Name="itemID" Mode="In" Type="Int32" />
+            <Parameter Name="oldprice" Mode="In" Type="Decimal" />
+            <Parameter Name="newprice" Mode="In" Type="Decimal" />
+            <Parameter Name="modifyDate" Mode="In" Type="DateTime" />
+            <Parameter Name="note" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertItems">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="decription" Mode="In" Type="String" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="unitprice" Mode="In" Type="Decimal" />
+            <Parameter Name="quantity" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertProcedures">
+            <Parameter Name="procName" Mode="In" Type="String" />
+            <Parameter Name="note" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateCost">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="procId" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateItem">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="unitprice" Mode="In" Type="Decimal" />
+            <Parameter Name="quantity" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateItemPrice">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="ModifyDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Note" Mode="In" Type="String" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="NewUnitPrice" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateProcedures">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="procName" Mode="In" Type="String" />
+            <Parameter Name="note" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="CostDetailsTs" EntityType="CaseCostModel.CostDetailsT" />
+          <AssociationSet Name="FK_CostDetailsT_CostT" Association="CaseCostModel.FK_CostDetailsT_CostT">
+            <End Role="CostT" EntitySet="CostTs" />
+            <End Role="CostDetailsT" EntitySet="CostDetailsTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostDetailsT_ItemT" Association="CaseCostModel.FK_CostDetailsT_ItemT">
+            <End Role="ItemsT" EntitySet="ItemsTs" />
+            <End Role="CostDetailsT" EntitySet="CostDetailsTs" />
+          </AssociationSet>
+          <EntitySet Name="Invoices" EntityType="CaseCostModel.Invoice" />
+          <FunctionImport Name="sp_InsertInvoice">
+            <Parameter Name="procID" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="itemID" Mode="In" Type="Int32" />
+            <Parameter Name="quantity" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="PremissionsTs" EntityType="CaseCostModel.PremissionsT" />
+          <EntitySet Name="UsersTs" EntityType="CaseCostModel.UsersT" />
+          <AssociationSet Name="FK_UsersT_PremissionsT" Association="CaseCostModel.FK_UsersT_PremissionsT">
+            <End Role="PremissionsT" EntitySet="PremissionsTs" />
+            <End Role="UsersT" EntitySet="UsersTs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CostDetailsT">
+          <Key>
+            <PropertyRef Name="CostID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="CostID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <NavigationProperty Name="CostT" Relationship="CaseCostModel.FK_CostDetailsT_CostT" FromRole="CostDetailsT" ToRole="CostT" />
+          <NavigationProperty Name="ItemsT" Relationship="CaseCostModel.FK_CostDetailsT_ItemT" FromRole="CostDetailsT" ToRole="ItemsT" />
+        </EntityType>
+        <Association Name="FK_CostDetailsT_CostT">
+          <End Type="CaseCostModel.CostT" Role="CostT" Multiplicity="1" />
+          <End Type="CaseCostModel.CostDetailsT" Role="CostDetailsT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostT">
+              <PropertyRef Name="CostID" />
+            </Principal>
+            <Dependent Role="CostDetailsT">
+              <PropertyRef Name="CostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostDetailsT_ItemT">
+          <End Type="CaseCostModel.ItemsT" Role="ItemsT" Multiplicity="1" />
+          <End Type="CaseCostModel.CostDetailsT" Role="CostDetailsT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemsT">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="CostDetailsT">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="ProcedureName" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="UnitPrice" />
+            <PropertyRef Name="CostID" />
+          </Key>
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProcedureName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="CostID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PremissionsT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Premission" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UsersTs" Relationship="CaseCostModel.FK_UsersT_PremissionsT" FromRole="PremissionsT" ToRole="UsersT" />
+        </EntityType>
+        <EntityType Name="UsersT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PremissionsID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PremissionsT" Relationship="CaseCostModel.FK_UsersT_PremissionsT" FromRole="UsersT" ToRole="PremissionsT" />
+        </EntityType>
+        <Association Name="FK_UsersT_PremissionsT">
+          <End Type="CaseCostModel.PremissionsT" Role="PremissionsT" Multiplicity="1" />
+          <End Type="CaseCostModel.UsersT" Role="UsersT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PremissionsT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UsersT">
+              <PropertyRef Name="PremissionsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CaseCostModelStoreContainer" CdmEntityContainer="CaseCostEntities">
+          <EntitySetMapping Name="CostTs">
+            <EntityTypeMapping TypeName="CaseCostModel.CostT">
+              <MappingFragment StoreEntitySet="CostT">
+                <ScalarProperty Name="CostID" ColumnName="CostID" />
+                <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemPriceUpdateTs">
+            <EntityTypeMapping TypeName="CaseCostModel.ItemPriceUpdateT">
+              <MappingFragment StoreEntitySet="ItemPriceUpdateT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="OldUnitPrice" ColumnName="OldUnitPrice" />
+                <ScalarProperty Name="NewUnitPrice" ColumnName="NewUnitPrice" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsTs">
+            <EntityTypeMapping TypeName="CaseCostModel.ItemsT">
+              <MappingFragment StoreEntitySet="ItemsT">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProceduresTs">
+            <EntityTypeMapping TypeName="CaseCostModel.ProceduresT">
+              <MappingFragment StoreEntitySet="ProceduresT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProcedureName" ColumnName="ProcedureName" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_DeleteCost" FunctionName="CaseCostModel.Store.SP_DeleteCost" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteItem" FunctionName="CaseCostModel.Store.SP_DeleteItem" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteItemPriceUpdate" FunctionName="CaseCostModel.Store.SP_DeleteItemPriceUpdate" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteProcedures" FunctionName="CaseCostModel.Store.SP_DeleteProcedures" />
+          <FunctionImportMapping FunctionImportName="SP_InsertCost" FunctionName="CaseCostModel.Store.SP_InsertCost" />
+          <FunctionImportMapping FunctionImportName="SP_InsertCostDetails" FunctionName="CaseCostModel.Store.SP_InsertCostDetails" />
+          <FunctionImportMapping FunctionImportName="SP_InsertItemPriceUpdate" FunctionName="CaseCostModel.Store.SP_InsertItemPriceUpdate" />
+          <FunctionImportMapping FunctionImportName="SP_InsertItems" FunctionName="CaseCostModel.Store.SP_InsertItems" />
+          <FunctionImportMapping FunctionImportName="SP_InsertProcedures" FunctionName="CaseCostModel.Store.SP_InsertProcedures" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateCost" FunctionName="CaseCostModel.Store.SP_UpdateCost" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateItem" FunctionName="CaseCostModel.Store.SP_UpdateItem" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateItemPrice" FunctionName="CaseCostModel.Store.SP_UpdateItemPrice" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateProcedures" FunctionName="CaseCostModel.Store.SP_UpdateProcedures" />
+          <EntitySetMapping Name="CostDetailsTs">
+            <EntityTypeMapping TypeName="CaseCostModel.CostDetailsT">
+              <MappingFragment StoreEntitySet="CostDetailsT">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="CostID" ColumnName="CostID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="CaseCostModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="CostID" ColumnName="CostID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProcedureName" ColumnName="ProcedureName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertInvoice" FunctionName="CaseCostModel.Store.sp_InsertInvoice" />
+          <EntitySetMapping Name="PremissionsTs">
+            <EntityTypeMapping TypeName="CaseCostModel.PremissionsT">
+              <MappingFragment StoreEntitySet="PremissionsT">
+                <ScalarProperty Name="Premission" ColumnName="Premission" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersTs">
+            <EntityTypeMapping TypeName="CaseCostModel.UsersT">
+              <MappingFragment StoreEntitySet="UsersT">
+                <ScalarProperty Name="PremissionsID" ColumnName="PremissionsID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

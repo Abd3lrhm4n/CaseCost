@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4ad478fda774084beb122eb000d073f" Name="Diagram1">
+        <EntityTypeShape EntityType="CaseCostModel.CostT" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CaseCostModel.ItemPriceUpdateT" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CaseCostModel.ItemsT" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CaseCostModel.ProceduresT" Width="1.5" PointX="5.125" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="CaseCostModel.FK_CostT_ProceduresT" ManuallyRouted="false" />
+        <AssociationConnector Association="CaseCostModel.FK_ItemPriceUpdateT_ItemT" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CaseCostModel.CostDetailsT" Width="1.5" PointX="4.5" PointY="2.375" />
+        <AssociationConnector Association="CaseCostModel.FK_CostDetailsT_CostT" />
+        <AssociationConnector Association="CaseCostModel.FK_CostDetailsT_ItemT" />
+        <EntityTypeShape EntityType="CaseCostModel.Invoice" Width="1.5" PointX="6.25" PointY="0.5" />
+        <EntityTypeShape EntityType="CaseCostModel.PremissionsT" Width="1.5" PointX="7.375" PointY="4.25" />
+        <EntityTypeShape EntityType="CaseCostModel.UsersT" Width="1.5" PointX="9.625" PointY="3.875" />
+        <AssociationConnector Association="CaseCostModel.FK_UsersT_PremissionsT" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
