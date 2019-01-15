@@ -27,6 +27,8 @@ namespace CaseCost
 
         private void AuditForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Normal;
+
             // TODO: This line of code loads data into the 'itemsNameCB.ItemsT' table. You can move, or remove it, as needed.
             this.itemsTTableAdapter.Fill(this.itemsNameCB.ItemsT);
 

@@ -38,9 +38,11 @@ namespace CaseCost
             this.itemsTTableAdapter.Fill(this.itemsGridView.ItemsT);
             DatePickerItems.Value = DateTime.Now;
             main = (MainForm)Application.OpenForms["MainForm"];
+            this.WindowState = FormWindowState.Normal;
+
 
         }
-        
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {

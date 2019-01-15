@@ -31,6 +31,8 @@ namespace CaseCost
         {
             // TODO: This line of code loads data into the 'caseCostDataSet1.ProceduresT' table. You can move, or remove it, as needed.
             this.proceduresTTableAdapter.Fill(this.caseCostDataSet1.ProceduresT);
+            this.WindowState = FormWindowState.Normal;
+
 
             main = (MainForm)Application.OpenForms["MainForm"];
         }

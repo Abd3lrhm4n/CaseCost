@@ -18,6 +18,7 @@ namespace CaseCost
 
         private void InvoicesForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Normal;
             // TODO: This line of code loads data into the 'cbSelectInvDataSet.CostT' table. You can move, or remove it, as needed.
             this.costTTableAdapter.Fill(this.cbSelectInvDataSet.CostT);
 

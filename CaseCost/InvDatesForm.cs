@@ -28,10 +28,9 @@ namespace CaseCost
 
         private void InvDatesForm_Load(object sender, EventArgs e)
         {
-            
+            this.WindowState = FormWindowState.Normal;
 
             GridViewDataSource();
-            
         }
        
         //load InvDatesforms GridView Data
