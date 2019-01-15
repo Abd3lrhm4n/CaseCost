@@ -52,7 +52,6 @@
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemsGridView = new CaseCost.ItemsGridView();
-            this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.btnEdit = new MetroFramework.Controls.MetroButton();
             this.btnSave = new MetroFramework.Controls.MetroButton();
             this.btnReset = new MetroFramework.Controls.MetroButton();
@@ -413,27 +412,6 @@
             this.itemsGridView.DataSetName = "ItemsGridView";
             this.itemsGridView.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Silver;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.DisplayFocus = true;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnDelete.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.btnDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(755, 208);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 36);
-            this.btnDelete.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Remove";
-            this.btnDelete.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnDelete.UseCustomForeColor = true;
-            this.btnDelete.UseSelectable = true;
-            this.btnDelete.UseStyleColors = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Silver;
@@ -582,7 +560,6 @@
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dataGridView1);
@@ -624,7 +601,6 @@
         private MetroFramework.Controls.MetroTextBox txtQuantity;
         private MetroFramework.Controls.MetroTextBox txtDescription;
         private MetroFramework.Controls.MetroGrid dataGridView1;
-        private MetroFramework.Controls.MetroButton btnDelete;
         private MetroFramework.Controls.MetroButton btnEdit;
         private MetroFramework.Controls.MetroButton btnSave;
         private MetroFramework.Controls.MetroButton btnReset;

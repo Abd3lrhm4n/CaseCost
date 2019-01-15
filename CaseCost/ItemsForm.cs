@@ -109,7 +109,6 @@ namespace CaseCost
                             TextBoxCleaner();
                             btnEdit.Enabled = false;
                             btnSave.Enabled = true;
-                            btnDelete.Enabled = false;
 
                             SelectedRow = -1;
                         }
@@ -155,33 +154,32 @@ namespace CaseCost
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??", "Confirm Delete!!", MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
-            {
-                //get data from fields
-                ItemsT item = new ItemsT() { ItemID = id, Name = txtName.Text };
+        //private void btnDelete_Click(object sender, EventArgs e)
+        //{
+        //    var confirmResult = MessageBox.Show("Are you sure to delete this item ??", "Confirm Delete!!", MessageBoxButtons.YesNo);
+        //    if (confirmResult == DialogResult.Yes)
+        //    {
+        //        //get data from fields
+        //        ItemsT item = new ItemsT() { ItemID = id, Name = txtName.Text };
 
-                //delete store procedure
-                MessageBox.Show(new ItemsModel().DeleteItem(item));
+        //        //delete store procedure
+        //        MessageBox.Show(new ItemsModel().DeleteItem(item));
 
-                //refill gridview with new data
-                this.itemsTTableAdapter.Fill(this.itemsGridView.ItemsT);
+        //        //refill gridview with new data
+        //        this.itemsTTableAdapter.Fill(this.itemsGridView.ItemsT);
 
-                TextBoxCleaner();
-                btnEdit.Enabled = false;
-                btnSave.Enabled = true;
-                btnDelete.Enabled = false;
-            }
-            //refersh items combox in Main form
-            if (main.CbItemInv.InvokeRequired)
-            {
-                main.Invoke(new MethodInvoker(delegate { main.ItemsTTableAdapter.Fill(main.ItemsNameCB.ItemsT); }));
+        //        TextBoxCleaner();
+        //        btnEdit.Enabled = false;
+        //        btnSave.Enabled = true;
+        //    }
+        //    //refersh items combox in Main form
+        //    if (main.CbItemInv.InvokeRequired)
+        //    {
+        //        main.Invoke(new MethodInvoker(delegate { main.ItemsTTableAdapter.Fill(main.ItemsNameCB.ItemsT); }));
 
-            }
+        //    }
 
-        }
+        //}
 
         //reset all fields and quit edit mode
         private void btnReset_Click(object sender, EventArgs e)
@@ -189,7 +187,6 @@ namespace CaseCost
             TextBoxCleaner();
             btnEdit.Enabled = false;
             btnSave.Enabled = true;
-            btnDelete.Enabled = false;
         }
 
 
@@ -217,7 +214,7 @@ namespace CaseCost
                 //open edit mode and close insert
                 btnEdit.Enabled = true;
                 btnSave.Enabled = false;
-                btnDelete.Enabled = true;
+                btnReset.Enabled = true;
             }
         }
         
