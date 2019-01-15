@@ -35,6 +35,7 @@ namespace CaseCost
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Normal;
             accCheck = false;
             txtUserName.Focus();
             using (CaseCostEntities db = new CaseCostEntities())
