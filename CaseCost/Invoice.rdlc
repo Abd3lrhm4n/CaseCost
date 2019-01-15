@@ -397,7 +397,7 @@
         <Top>0.17583in</Top>
         <Left>0.24374in</Left>
         <Height>0.73958in</Height>
-        <Width>7.06167in</Width>
+        <Width>7.06168in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -508,7 +508,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Inv No: </Value>
+                  <Value>Invoice No: </Value>
                   <Style>
                     <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -531,7 +531,7 @@
           <Top>0.37375in</Top>
           <Left>0.24374in</Left>
           <Height>0.33333in</Height>
-          <Width>1.52083in</Width>
+          <Width>1.91666in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
