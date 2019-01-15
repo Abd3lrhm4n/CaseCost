@@ -92,7 +92,7 @@ namespace CaseCost
             this.DataPicker_InvBeganData.MinimumSize = new System.Drawing.Size(0, 29);
             this.DataPicker_InvBeganData.Name = "DataPicker_InvBeganData";
             this.DataPicker_InvBeganData.Size = new System.Drawing.Size(143, 29);
-            this.DataPicker_InvBeganData.TabIndex = 4;
+            this.DataPicker_InvBeganData.TabIndex = 3;
             this.DataPicker_InvBeganData.UseStyleColors = true;
             // 
             // cbSelectInv
@@ -188,7 +188,7 @@ namespace CaseCost
             this.DataPicker_InvEndData.MinimumSize = new System.Drawing.Size(0, 29);
             this.DataPicker_InvEndData.Name = "DataPicker_InvEndData";
             this.DataPicker_InvEndData.Size = new System.Drawing.Size(143, 29);
-            this.DataPicker_InvEndData.TabIndex = 6;
+            this.DataPicker_InvEndData.TabIndex = 4;
             this.DataPicker_InvEndData.UseStyleColors = true;
             // 
             // btnLoadInv
@@ -222,7 +222,7 @@ namespace CaseCost
             this.btnInvDataLoad.Name = "btnInvDataLoad";
             this.btnInvDataLoad.Size = new System.Drawing.Size(75, 29);
             this.btnInvDataLoad.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnInvDataLoad.TabIndex = 7;
+            this.btnInvDataLoad.TabIndex = 5;
             this.btnInvDataLoad.Text = "Show";
             this.btnInvDataLoad.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnInvDataLoad.UseCustomBackColor = true;

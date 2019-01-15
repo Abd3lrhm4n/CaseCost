@@ -109,7 +109,7 @@
             this.txtName.ShortcutsEnabled = true;
             this.txtName.Size = new System.Drawing.Size(398, 30);
             this.txtName.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 0;
             this.txtName.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtName.UseSelectable = true;
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -178,7 +178,7 @@
             this.DatePickerItems.MinimumSize = new System.Drawing.Size(0, 29);
             this.DatePickerItems.Name = "DatePickerItems";
             this.DatePickerItems.Size = new System.Drawing.Size(113, 29);
-            this.DatePickerItems.TabIndex = 6;
+            this.DatePickerItems.TabIndex = 3;
             this.DatePickerItems.UseStyleColors = true;
             // 
             // metroLabel4
@@ -226,7 +226,7 @@
             this.txtUnitPrice.ShortcutsEnabled = true;
             this.txtUnitPrice.Size = new System.Drawing.Size(113, 30);
             this.txtUnitPrice.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtUnitPrice.TabIndex = 3;
+            this.txtUnitPrice.TabIndex = 1;
             this.txtUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUnitPrice.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtUnitPrice.UseSelectable = true;
@@ -260,7 +260,7 @@
             this.txtQuantity.ShortcutsEnabled = true;
             this.txtQuantity.Size = new System.Drawing.Size(117, 30);
             this.txtQuantity.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtQuantity.TabIndex = 5;
+            this.txtQuantity.TabIndex = 2;
             this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtQuantity.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtQuantity.UseSelectable = true;
@@ -295,7 +295,7 @@
             this.txtDescription.ShortcutsEnabled = true;
             this.txtDescription.Size = new System.Drawing.Size(398, 99);
             this.txtDescription.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDescription.TabIndex = 9;
+            this.txtDescription.TabIndex = 4;
             this.txtDescription.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtDescription.UseSelectable = true;
             this.txtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -425,7 +425,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 36);
             this.btnEdit.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnEdit.TabIndex = 11;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnEdit.UseCustomForeColor = true;
@@ -444,7 +444,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnSave.TabIndex = 10;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Add";
             this.btnSave.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnSave.UseCustomBackColor = true;
@@ -466,7 +466,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 36);
             this.btnReset.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnReset.TabIndex = 13;
+            this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset";
             this.btnReset.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnReset.UseCustomForeColor = true;
@@ -501,7 +501,7 @@
             this.txtSearch.ShortcutsEnabled = true;
             this.txtSearch.Size = new System.Drawing.Size(398, 30);
             this.txtSearch.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearch.TabIndex = 16;
+            this.txtSearch.TabIndex = 9;
             this.txtSearch.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -542,7 +542,7 @@
             this.btnAudit.Name = "btnAudit";
             this.btnAudit.Size = new System.Drawing.Size(127, 36);
             this.btnAudit.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnAudit.TabIndex = 14;
+            this.btnAudit.TabIndex = 8;
             this.btnAudit.Text = "Prices Audit";
             this.btnAudit.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnAudit.UseCustomForeColor = true;

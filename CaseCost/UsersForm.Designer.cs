@@ -68,7 +68,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 36);
             this.btnReset.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnReset.TabIndex = 9;
+            this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset";
             this.btnReset.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnReset.UseCustomForeColor = true;
@@ -89,7 +89,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 36);
             this.btnDelete.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Remove";
             this.btnDelete.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnDelete.UseCustomForeColor = true;
@@ -110,7 +110,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 36);
             this.btnEdit.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnEdit.TabIndex = 7;
+            this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnEdit.UseCustomForeColor = true;
@@ -129,7 +129,7 @@
             this.btnCreateNew.Name = "btnCreateNew";
             this.btnCreateNew.Size = new System.Drawing.Size(105, 36);
             this.btnCreateNew.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnCreateNew.TabIndex = 6;
+            this.btnCreateNew.TabIndex = 4;
             this.btnCreateNew.Text = "Create New";
             this.btnCreateNew.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnCreateNew.UseCustomBackColor = true;
@@ -316,7 +316,7 @@
             this.txtPass.ShortcutsEnabled = true;
             this.txtPass.Size = new System.Drawing.Size(180, 30);
             this.txtPass.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPass.TabIndex = 3;
+            this.txtPass.TabIndex = 2;
             this.txtPass.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPass.UseSelectable = true;
             this.txtPass.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -334,7 +334,7 @@
             this.cbPremissions.Location = new System.Drawing.Point(553, 87);
             this.cbPremissions.Name = "cbPremissions";
             this.cbPremissions.Size = new System.Drawing.Size(180, 29);
-            this.cbPremissions.TabIndex = 5;
+            this.cbPremissions.TabIndex = 3;
             this.cbPremissions.UseSelectable = true;
             this.cbPremissions.UseStyleColors = true;
             this.cbPremissions.ValueMember = "ID";
