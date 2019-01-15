@@ -143,7 +143,7 @@ namespace CaseCost
 
         private void InvGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (InvGridView.SelectedRows.Count > 0 && InvGridView.Rows[e.RowIndex].Cells[0].Value != null)
+            if (InvGridView.SelectedRows.Count > 0 && InvGridView.SelectedRows.Count <= 1 && InvGridView.Rows[e.RowIndex].Cells[0].Value != null)
             {
                 selectedRow = e.RowIndex;
 
