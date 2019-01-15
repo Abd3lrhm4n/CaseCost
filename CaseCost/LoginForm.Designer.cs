@@ -49,7 +49,7 @@
             this.btnDeleteInv.Name = "btnDeleteInv";
             this.btnDeleteInv.Size = new System.Drawing.Size(75, 36);
             this.btnDeleteInv.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnDeleteInv.TabIndex = 5;
+            this.btnDeleteInv.TabIndex = 3;
             this.btnDeleteInv.Text = "Exit";
             this.btnDeleteInv.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnDeleteInv.UseCustomForeColor = true;
@@ -68,7 +68,7 @@
             this.btnAddInv.Name = "btnAddInv";
             this.btnAddInv.Size = new System.Drawing.Size(75, 36);
             this.btnAddInv.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnAddInv.TabIndex = 4;
+            this.btnAddInv.TabIndex = 2;
             this.btnAddInv.Text = "LogIn";
             this.btnAddInv.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnAddInv.UseCustomBackColor = true;
@@ -122,7 +122,7 @@
             this.txtUserName.ShortcutsEnabled = true;
             this.txtUserName.Size = new System.Drawing.Size(260, 30);
             this.txtUserName.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtUserName.TabIndex = 1;
+            this.txtUserName.TabIndex = 0;
             this.txtUserName.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtUserName.UseSelectable = true;
             this.txtUserName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -173,7 +173,7 @@
             this.txtPassword.ShortcutsEnabled = true;
             this.txtPassword.Size = new System.Drawing.Size(260, 30);
             this.txtPassword.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPassword.UseSelectable = true;
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

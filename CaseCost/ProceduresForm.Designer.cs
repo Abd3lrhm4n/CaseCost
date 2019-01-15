@@ -100,7 +100,7 @@
             this.txtSearch.ShortcutsEnabled = true;
             this.txtSearch.Size = new System.Drawing.Size(398, 30);
             this.txtSearch.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearch.TabIndex = 5;
+            this.txtSearch.TabIndex = 7;
             this.txtSearch.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -171,7 +171,7 @@
             this.txtDescription.ShortcutsEnabled = true;
             this.txtDescription.Size = new System.Drawing.Size(398, 99);
             this.txtDescription.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDescription.TabIndex = 3;
+            this.txtDescription.TabIndex = 2;
             this.txtDescription.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtDescription.UseSelectable = true;
             this.txtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -309,7 +309,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 36);
             this.btnReset.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnReset.TabIndex = 9;
+            this.btnReset.TabIndex = 6;
             this.btnReset.Text = "Reset";
             this.btnReset.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnReset.UseCustomForeColor = true;
@@ -330,7 +330,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 36);
             this.btnDelete.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Remove";
             this.btnDelete.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnDelete.UseCustomForeColor = true;
@@ -351,7 +351,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 36);
             this.btnEdit.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnEdit.TabIndex = 7;
+            this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnEdit.UseCustomForeColor = true;
@@ -370,7 +370,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnSave.TabIndex = 6;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Add";
             this.btnSave.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnSave.UseCustomBackColor = true;

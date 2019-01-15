@@ -114,7 +114,7 @@ namespace CaseCost
             this.InvoiceDatePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.InvoiceDatePicker.Name = "InvoiceDatePicker";
             this.InvoiceDatePicker.Size = new System.Drawing.Size(131, 29);
-            this.InvoiceDatePicker.TabIndex = 3;
+            this.InvoiceDatePicker.TabIndex = 2;
             this.InvoiceDatePicker.UseStyleColors = true;
             // 
             // metroLabel1
@@ -533,7 +533,7 @@ namespace CaseCost
             this.cbItemInv.Location = new System.Drawing.Point(54, 9);
             this.cbItemInv.Name = "cbItemInv";
             this.cbItemInv.Size = new System.Drawing.Size(212, 29);
-            this.cbItemInv.TabIndex = 1;
+            this.cbItemInv.TabIndex = 0;
             this.cbItemInv.UseSelectable = true;
             this.cbItemInv.UseStyleColors = true;
             this.cbItemInv.ValueMember = "ItemID";
