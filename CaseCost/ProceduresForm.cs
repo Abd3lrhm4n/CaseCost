@@ -66,7 +66,7 @@ namespace CaseCost
 
         private void metroGrid1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (ProcGridView.SelectedRows.Count > 0 && ProcGridView.Rows[e.RowIndex].Cells[0].Value != null)
+            if (ProcGridView.SelectedRows.Count > 0 && ProcGridView.SelectedRows.Count <= 1 && ProcGridView.Rows[e.RowIndex].Cells[0].Value != null)
             {
                 txtName.Text = ProcGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtDescription.Text = ProcGridView.Rows[e.RowIndex].Cells[2].Value.ToString();

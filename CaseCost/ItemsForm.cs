@@ -195,7 +195,7 @@ namespace CaseCost
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0) //to make sure that user atleast choosed a row
+            if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows.Count <= 0) //to make sure that user atleast choosed a row
             {
                 //get the columns values 
                 string Name = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();

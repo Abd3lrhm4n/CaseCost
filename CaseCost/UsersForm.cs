@@ -95,14 +95,17 @@ namespace CaseCost
 
         private void UsersGirdView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtUserName.Text = UsersGirdView.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtPass.Text = UsersGirdView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            cbPremissions.Text = UsersGirdView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            id = (int)UsersGirdView.Rows[e.RowIndex].Cells[3].Value;
+            if (UsersGirdView.SelectedRows.Count > 0 && UsersGirdView.SelectedRows.Count <= 1)
+            {
+                txtUserName.Text = UsersGirdView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtPass.Text = UsersGirdView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cbPremissions.Text = UsersGirdView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                id = (int)UsersGirdView.Rows[e.RowIndex].Cells[3].Value;
 
-            btnCreateNew.Enabled = false;
-            btnEdit.Enabled = true;
-            btnDelete.Enabled = true;
+                btnCreateNew.Enabled = false;
+                btnEdit.Enabled = true;
+                btnDelete.Enabled = true;
+            }
 
         }
 
