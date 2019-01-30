@@ -253,6 +253,7 @@ namespace CaseCost
             this.MaximizeBox = false;
             this.Name = "InvoicesForm";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "InvoicesForm";
             this.Load += new System.EventHandler(this.InvoicesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.QueryInvoiceBindingSource)).EndInit();

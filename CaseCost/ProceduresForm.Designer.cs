@@ -404,6 +404,7 @@
             this.MaximizeBox = false;
             this.Name = "ProceduresForm";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Procedures";
             this.Load += new System.EventHandler(this.ProceduresForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProcGridView)).EndInit();

@@ -121,6 +121,7 @@
             this.Controls.Add(this.GridViewInvDates);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InvDatesForm";
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Invoices Head";
             this.Load += new System.EventHandler(this.InvDatesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewInvDates)).EndInit();
