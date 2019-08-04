@@ -48,7 +48,7 @@ namespace CaseCost
         {
             if (txtName.Text.Trim() != "" && txtUnitPrice.Text.Trim() != "" && txtQuantity.Text.Trim() != "")
             {
-                if (Regex.IsMatch(txtUnitPrice.Text, @"^[0-9]\d{0,9}(\.\d{1,2})?%?$") && Regex.IsMatch(txtQuantity.Text, @"^[0-9]\d{0,9}(\.\d{1,2})?%?$"))
+                if (Regex.IsMatch(txtUnitPrice.Text, @"-?\d+(?:\.\d+)?") && Regex.IsMatch(txtQuantity.Text, @"-?\d+(?:\.\d+)?"))
                 {
                     if (Convert.ToDecimal(txtUnitPrice.Text) > 0 && Convert.ToDecimal(txtQuantity.Text) > 0)
                     {
@@ -93,7 +93,7 @@ namespace CaseCost
         {
             if (txtName.Text.Trim() != "" && txtUnitPrice.Text.Trim() != "" && txtQuantity.Text.Trim() != "")
             {
-                if (Regex.IsMatch(txtUnitPrice.Text, @"^[0-9]\d{0,9}(\.\d{1,2})?%?$") && Regex.IsMatch(txtQuantity.Text, @"^[0-9]\d{0,9}(\.\d{1,2})?%?$"))
+                if (Regex.IsMatch(txtUnitPrice.Text, @"-?\d+(?:\.\d+)?") && Regex.IsMatch(txtQuantity.Text, @"-?\d+(?:\.\d+)?"))
                 {
                     if (Convert.ToDecimal(txtUnitPrice.Text) > 0 && Convert.ToDecimal(txtQuantity.Text) > 0)
                     {
