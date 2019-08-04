@@ -75,7 +75,7 @@
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(59, 25);
             this.metroLabel5.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel5.TabIndex = 0;
+            this.metroLabel5.TabIndex = 12;
             this.metroLabel5.Text = "Name";
             this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -126,7 +126,7 @@
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(86, 25);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.TabIndex = 11;
             this.metroLabel1.Text = "Unit Price";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -144,7 +144,7 @@
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(80, 25);
             this.metroLabel2.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel2.TabIndex = 4;
+            this.metroLabel2.TabIndex = 10;
             this.metroLabel2.Text = "Quantity";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -162,7 +162,7 @@
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(102, 25);
             this.metroLabel3.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel3.TabIndex = 8;
+            this.metroLabel3.TabIndex = 14;
             this.metroLabel3.Text = "Description";
             this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -192,7 +192,7 @@
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(49, 25);
             this.metroLabel4.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel4.TabIndex = 7;
+            this.metroLabel4.TabIndex = 13;
             this.metroLabel4.Text = "Date";
             this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Light;
